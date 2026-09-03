@@ -10,7 +10,7 @@ from transformers import (
 )
 from datasets import DatasetDict
 
-from .data_preprocessing import load_conll2003, build_label_maps, tokenize_and_align, tokenize_and_align_chars
+from .data_preprocessing import load_data, build_label_maps, tokenize_and_align, tokenize_and_align_chars
 from .metrics import compute_metrics_builder
 from .noise import TOKEN_NOISE, LABEL_NOISE
 
@@ -124,6 +124,7 @@ def apply_profile(ds: DatasetDict, profile, id2label, label2id, id2pos):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="bert-base-cased")
+    ap.add_argument("--dataset", default="conll2003", help="Hugging Face dataset name or path (default: conll2003)")
     ap.add_argument("--profile", required=True, help="YAML file with noise steps & scopes")
     ap.add_argument("--epochs", type=int, default=5)
     ap.add_argument("--batch_size", type=int, default=16)
@@ -136,7 +137,7 @@ def main():
 
     seed_all(args.seed)
 
-    ds = load_conll2003()
+    ds = load_data(args.dataset)
     id2label, label2id = build_label_maps(ds["train"].features, "ner_tags")
 
     id2pos, pos2id = build_label_maps(ds["train"].features, "pos_tags")

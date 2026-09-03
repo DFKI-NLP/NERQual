@@ -1,8 +1,11 @@
 from typing import Dict, Tuple
 from datasets import load_dataset, ClassLabel
 
-def load_conll2003():
-    return load_dataset("conll2003", trust_remote_code=True)
+def load_data(dataset_name: str = "conll2003"):
+    return load_dataset(dataset_name, trust_remote_code=True)
+
+# Backward-compatible alias
+load_conll2003 = load_data
 
 def build_label_maps(features, feature_name: str) -> Tuple[Dict[int, str], Dict[str, int]]:
     """
