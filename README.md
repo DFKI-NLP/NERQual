@@ -1,7 +1,7 @@
 # NERQual: Evaluating the Robustness of Named Entity Recognition Models to Data Quality Issues
 
 This repository contains the code of our paper:  
-**NERQual: Evaluating the Robustness of Named Entity Recognition Models to Data Quality Issues**, which is going to be published at the *11th Workshop on Noisy and User-generated Text (W-NUT 2026)* (co-located with EMNLP 2026).
+**[NERQual: Evaluating the Robustness of Named Entity Recognition Models to Data Quality Issues](https://aclanthology.org/2026.wnut-1.14/)**, published at the *11th Workshop on Noisy and User-generated Text (W-NUT 2026)* (co-located with EMNLP 2026).
 
 This project investigates how **data quality** influences the performance of different **Named Entity Recognition (NER)** models. It systematically introduces **noise** into datasets (train, validation, and test sets) at varying **noise rates** and **stages** to measure robustness and generalization of various NER architectures.
 
@@ -132,11 +132,13 @@ bash /home/dtrautner/dev/pegasus-bridle/wrapper.sh wandb agent <YOUR_SWEEP_ID>
     author = "Trautner, Denis  and
       Thomas, Philippe",
     booktitle = "Proceedings of the 11th Workshop on Noisy and User-generated Text",
-    month = october,
+    month = oct,
     year = "2026",
     address = "Budapest, Hungary",
     publisher = "Association for Computational Linguistics",
-    note = "Co-located with EMNLP 2026"
+    url = "https://aclanthology.org/2026.wnut-1.14/",
+    pages = "195--209",
+    ISBN = "979-8-89176-470-5"
 }
 ```
 
